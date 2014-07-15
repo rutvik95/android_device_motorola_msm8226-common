@@ -19,7 +19,7 @@
 # to only building on ARM if they include assembly. Individual makefiles
 # are responsible for having their own logic, for fine-grained control.
 
-ifeq ($(BOARD_VENDOR),motorola-qcom)
+ifeq ($(BOARD_VENDOR),samsung-qcom)
 ifeq ($(TARGET_BOARD_PLATFORM),msm8226)
 
 LOCAL_PATH := $(call my-dir)
