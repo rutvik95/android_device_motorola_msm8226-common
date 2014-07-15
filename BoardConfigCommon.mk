@@ -27,7 +27,7 @@ BOARD_VENDOR := samsung-qcom
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno305
 TARGET_BOARD_PLATFORM := msm8226
 TARGET_BOOTLOADER_BOARD_NAME := MSM8226
-TARGET_CPU_VARIANT := krait
+TARGET_CPU_VARIANT := cortex-a7
 TARGET_USE_KINGFISHER_OPTIMIZATION := true
 
 -include device/samsung/qcom-common/BoardConfigCommon.mk
@@ -36,9 +36,9 @@ LOCAL_PATH := device/samsung/msm8226-common
 
 TARGET_SPECIFIC_HEADER_PATH += $(LOCAL_PATH)/include
 
-# Inline kernel building
-BOARD_KERNEL_SEPARATED_DT := true
+# Kernel
 BOARD_CUSTOM_BOOTIMG_MK := device/samsung/msm8226-common/mkbootimg.mk
+
 TARGET_KERNEL_SOURCE := kernel/samsung/ms013g
 TARGET_KERNEL_CONFIG :=msm8226-sec_ms013g_eur_defconfig msm8226-sec_defconfig
 TARGET_SELINUX_CONFIG := msm8226-sec_defconfig
@@ -47,14 +47,7 @@ BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_MKBOOTIMG_ARGS :=--ramdisk_offset 0x02000000 --dt device/samsung/ms013g/dtb --tags_offset 0x01e00000
 
-BOARD_HAS_QCOM_WLAN_SDK :=
 
-WLAN_MODULES:
-	mkdir -p $(KERNEL_MODULES_OUT)/pronto
-	mv $(KERNEL_MODULES_OUT)/wlan.ko $(KERNEL_MODULES_OUT)/pronto/pronto_wlan.ko
-	ln -sf /system/lib/modules/pronto/pronto_wlan.ko $(TARGET_OUT)/lib/modules/wlan.ko
-
-TARGET_KERNEL_MODULES += WLAN_MODULES
 
 # QCOM BSP
 TARGET_USES_QCOM_BSP := true
@@ -98,5 +91,4 @@ TARGET_OTA_ASSERT_DEVICE := g7102,g7105
 TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/etc/fstab.qcom
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 TARGET_USERIMAGES_USE_EXT4 := true
-TARGET_USERIMAGES_USE_F2FS := true
 BOARD_RECOVERY_SWIPE := true
