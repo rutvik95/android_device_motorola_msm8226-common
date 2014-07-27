@@ -40,9 +40,8 @@ TARGET_SPECIFIC_HEADER_PATH += $(LOCAL_PATH)/include
 BOARD_CUSTOM_BOOTIMG_MK := device/samsung/msm8226-common/mkbootimg.mk
 
 TARGET_KERNEL_SOURCE := kernel/samsung/ms013g
-TARGET_KERNEL_CONFIG :=msm8226-sec_ms013g_eur_defconfig msm8226-sec_defconfig
-TARGET_KERNEL_CONFIG :=msm8226-sec_defconfig
-TARGET_KERNEL_CONFIG :=DedS_defconfig
+# Try to build the kernel
+TARGET_KERNEL_CONFIG := cyanogenmod_ms013g_defconfig
 BOARD_KERNEL_CMDLINE := console=null androidboot.console=null androidboot.hardware=qcom user_debug=31 maxcpus=4 msm_rtb.filter=0x3F
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 2048
