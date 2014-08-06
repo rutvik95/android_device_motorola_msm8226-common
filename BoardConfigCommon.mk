@@ -44,7 +44,7 @@ TARGET_KERNEL_CONFIG := VARIANT_DEFCONFIG=msm8226-sec_ms013g_eur_defconfig msm82
 BOARD_KERNEL_CMDLINE := console=null androidboot.console=null androidboot.hardware=qcom user_debug=31 maxcpus=4 msm_rtb.filter=0x3F
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 2048
-BOARD_MKBOOTIMG_ARGS :=--ramdisk_offset 0x02000000 --dt device/samsung/qcom-common/dtbtool --tags_offset 0x01e00000
+
 
 # QCOM BSP
 TARGET_USES_QCOM_BSP := true
